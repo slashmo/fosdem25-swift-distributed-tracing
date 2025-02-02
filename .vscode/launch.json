@@ -1,0 +1,94 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:fosdem25-distributed-tracing}/services/product-catalog",
+            "name": "Debug productcatalogctl (services/product-catalog)",
+            "program": "${workspaceFolder:fosdem25-distributed-tracing}/services/product-catalog/.build/debug/productcatalogctl",
+            "preLaunchTask": "swift: Build Debug productcatalogctl (services/product-catalog)"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:fosdem25-distributed-tracing}/services/product-catalog",
+            "name": "Release productcatalogctl (services/product-catalog)",
+            "program": "${workspaceFolder:fosdem25-distributed-tracing}/services/product-catalog/.build/release/productcatalogctl",
+            "preLaunchTask": "swift: Build Release productcatalogctl (services/product-catalog)"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:fosdem25-distributed-tracing}/services/cart",
+            "name": "Debug recommendationctl (services/cart)",
+            "program": "${workspaceFolder:fosdem25-distributed-tracing}/services/cart/.build/debug/recommendationctl",
+            "preLaunchTask": "swift: Build Debug recommendationctl (services/cart)"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:fosdem25-distributed-tracing}/services/cart",
+            "name": "Release recommendationctl (services/cart)",
+            "program": "${workspaceFolder:fosdem25-distributed-tracing}/services/cart/.build/release/recommendationctl",
+            "preLaunchTask": "swift: Build Release recommendationctl (services/cart)"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:fosdem25-distributed-tracing}/services/cart",
+            "name": "Debug cartctl (services/cart)",
+            "program": "${workspaceFolder:fosdem25-distributed-tracing}/services/cart/.build/debug/cartctl",
+            "preLaunchTask": "swift: Build Debug cartctl (services/cart)"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:fosdem25-distributed-tracing}/services/cart",
+            "name": "Release cartctl (services/cart)",
+            "program": "${workspaceFolder:fosdem25-distributed-tracing}/services/cart/.build/release/cartctl",
+            "preLaunchTask": "swift: Build Release cartctl (services/cart)"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:fosdem25-distributed-tracing}/services/api",
+            "name": "Debug cartctl (services/api)",
+            "program": "${workspaceFolder:fosdem25-distributed-tracing}/services/api/.build/debug/cartctl",
+            "preLaunchTask": "swift: Build Debug cartctl (services/api)"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:fosdem25-distributed-tracing}/services/api",
+            "name": "Release cartctl (services/api)",
+            "program": "${workspaceFolder:fosdem25-distributed-tracing}/services/api/.build/release/cartctl",
+            "preLaunchTask": "swift: Build Release cartctl (services/api)"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:fosdem25-distributed-tracing}/services/api",
+            "name": "Debug apictl (services/api)",
+            "program": "${workspaceFolder:fosdem25-distributed-tracing}/services/api/.build/debug/apictl",
+            "preLaunchTask": "swift: Build Debug apictl (services/api)"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:fosdem25-distributed-tracing}/services/api",
+            "name": "Release apictl (services/api)",
+            "program": "${workspaceFolder:fosdem25-distributed-tracing}/services/api/.build/release/apictl",
+            "preLaunchTask": "swift: Build Release apictl (services/api)"
+        }
+    ]
+}

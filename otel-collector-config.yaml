@@ -1,0 +1,28 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: "otel-collector:4317"
+
+exporters:
+  debug:
+    verbosity: detailed
+
+  prometheus:
+    endpoint: "otel-collector:7070"
+
+  otlp/jaeger:
+    endpoint: "jaeger:4317"
+    tls:
+      insecure: true
+
+service:
+  pipelines:
+    metrics:
+      receivers: [otlp]
+      exporters: [prometheus, debug]
+    traces:
+      receivers: [otlp]
+      exporters: [otlp/jaeger, debug]
+
+# yaml-language-server: $schema=https://raw.githubusercontent.com/srikanthccv/otelcol-jsonschema/main/schema.json

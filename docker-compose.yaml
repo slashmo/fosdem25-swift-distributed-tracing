@@ -1,0 +1,57 @@
+name: fosdem-25-swift-distributed-tracing
+services:
+  product_catalog_postgres:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    volumes:
+      - product_catalog_postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: product_catalog
+      POSTGRES_PASSWORD: product_catalog
+      POSTGRES_DB: product_catalog
+
+  flipt:
+    image: flipt/flipt:latest
+    command: ["./flipt", "--force-migrate"]
+    volumes:
+      - flipt_data:/data
+    ports:
+      - 8016:8080 # OFREP & Flipt UI
+    environment:
+      FLIPT_LOG_LEVEL: debug
+      FLIPT_DATABASE_PATH: /data/flipt.db
+      FLIPT_TRACING_ENABLED: true
+      FLIPT_TRACING_EXPORTER: otlp
+      FLIPT_TRACING_OTLP_ENDPOINT: otel-collector:4317
+
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
+    ports:
+      - "4317:4317"  # OTLP gRPC receiver
+
+  prometheus:
+    image: prom/prometheus:latest
+    entrypoint:
+      - "/bin/prometheus"
+      - "--log.level=debug"
+      - "--config.file=/etc/prometheus/prometheus.yaml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--web.console.libraries=/usr/share/prometheus/console_libraries"
+      - "--web.console.templates=/usr/share/prometheus/consoles"
+    volumes:
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yaml
+    ports:
+      - "9090:9090"  # Prometheus web UI
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - 16686:16686 # Jaeger UI
+
+volumes:
+  product_catalog_postgres_data:
+  flipt_data:
